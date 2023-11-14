@@ -6,7 +6,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>
-          CSCO
+          CSCO Will
         </h1>
         <p>A collective board to organize your media.</p>
       </header>
