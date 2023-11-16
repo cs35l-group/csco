@@ -1,10 +1,18 @@
 body{
-  background-color: rgb(31, 138, 174);
+  background-color: rgb(54, 84, 95);
+}
+
+.Login-top{
+  margin-top: 150px;
 }
 
 .login-header{
   margin: auto;
   text-align: center;
+}
+
+.login-header p{
+  font-size: 20px;
 }
 
 .Login-section{
@@ -16,4 +24,21 @@ body{
 .LoginButton{
   margin: auto;
   width: 100px;
+}
+
+.form-row{
+  margin-bottom: 15px;
+}
+
+input {
+  width: 200px;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-bottom: 5px;
+}
+
+button {
+  width: 200px;
+  padding: 10px;
+  box-sizing: border-box;
 }

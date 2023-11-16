@@ -12,16 +12,19 @@ function App() {
         <h1>
           CSCO
         </h1>
-        <p>A collective board to organize your media.</p>
+        <p>Log into your account</p>
       </header>
       <div className='Login-section'>
         <form>
-          <label htmlFor="email">Email: </label>
-          <input type="email" id="email" name="email" />
-        </form>
-        <form> 
-          <label htmlFor="password">Password: </label>
-          <input type="password" id="password" name="password" />
+          <div className="form-row">
+            {/* <label htmlFor="email">Email: </label> */}
+            <input type="email" id="email" name="email" placeholder="Email" />
+          </div>
+
+          <div className="form-row">
+            {/* <label htmlFor="password">Password: </label> */}
+            <input type="password" id="password" name="password" placeholder="Password"/>
+            </div>
         </form> 
         <button className="LoginButton" type="submit">Login</button>
 
