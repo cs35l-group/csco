@@ -10,7 +10,28 @@ function Login() {
 
   let navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  const handleLoginSubmit = (event) => {
+    event.preventDefault();
+    if (username == "" || password == "") {
+      console.log("Username and password fields cannot be blank")
+      return;
+    }
+    fetch('http://localhost:4000/api/logins', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username, password }),
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('User logged in!:', data)
+      navigate('/home')
+    })
+    .catch(error => console.error('Error signing up:', error));
+  };
+
+  const handleSignUpSubmit = (event) => {
     event.preventDefault();
     if (username == "" || password == "") {
       console.log("Username and password fields cannot be blank")
@@ -40,7 +61,7 @@ function Login() {
         <p>Log into your account</p>
       </header>
       <div className='Login-section'>
-        <form onSubmit={handleSubmit}>
+        <form>
           <div className="form-row">
             <input
               type="text"
@@ -58,8 +79,11 @@ function Login() {
               placeholder="Password"
             />
             </div>
-            <button className="LoginButton" type="submit">Login</button>
         </form> 
+        {/* <button className="LoginButton" type="submit" onClick={handleLoginSubmit}>Login</button> */}
+        <button className="SignUpButton" type="submit" onClick={handleSignUpSubmit}>Sign Up</button>
+
+
 
       </div>
     </div>
