@@ -1,11 +1,10 @@
 import React from 'react';
-import './App.css'; 
 import ReactDOM from "react-dom/client"; //for rendering React components into the DOM
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; //for using react router for connecting pages together
-import navigation from './components/navigation'
 import Home from './pages/home'
 import Login from './pages/Login'
-import Header from './components/header'
+import './App.css'; 
+
 
 function App() {
   return (
@@ -19,7 +18,6 @@ function App() {
           </Routes>
         </div>
       </Router>
-    
     </>
   )
 }
