@@ -7,6 +7,10 @@ body{
   text-align: center;
 }
 
+.login-header p{
+  font-size: 20px;
+}
+
 .Login-section{
   display: flex;
   flex-direction: column;
@@ -16,4 +20,21 @@ body{
 .LoginButton{
   margin: auto;
   width: 100px;
+}
+
+.form-row{
+  margin-bottom: 15px;
+}
+
+input {
+  width: 200px;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-bottom: 5px;
+}
+
+button {
+  width: 200px;
+  padding: 10px;
+  box-sizing: border-box;
 }
