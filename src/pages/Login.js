@@ -54,12 +54,13 @@ function Login() {
 
   return (
     <div className="Login-top">
-      <header className="login-header">
+      {/* <header className="login-header">
         <h1>
           CSCO
         </h1>
         <p>Log into your account</p>
-      </header>
+      </header> */}
+      <p>Log into your account</p>
       <div className='Login-section'>
         <form>
           <div className="form-row">

@@ -10,24 +10,17 @@ import Header from './components/header'
 function App() {
   return (
     <>
-    <Router>
-      <div>
-        {/* Navigation links can go here */}
-        <Routes>
-          <Route path="/home" element={<Home />} />
-          <Route path="/" element={<Login />} exact/>
-        </Routes>
-      </div>
-    </Router>
-    // <div>
-    //   <Login />
-    // </div>
-    <div>
-      <Header />
-    </div>
-    <div>
-        <Home />
-      </div></>
+      <Router>
+        <div>
+          {/* Navigation links can go here */}
+          <Routes>
+            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<Login />} exact/>
+          </Routes>
+        </div>
+      </Router>
+    
+    </>
   )
 }
 

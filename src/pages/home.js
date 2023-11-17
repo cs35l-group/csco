@@ -1,8 +1,10 @@
 import React from 'react';
 import './home.css'
 import PhotoGallery from '../components/photogallery'
+import Header from '../components/header'
 import { Link } from 'react-router-dom';
-import './Login.css'; 
+
+
 
 function Home() {
 
@@ -24,19 +26,18 @@ function Home() {
   return (
     <>
       <div>
+        <Header />
+      </div>
+      <div>
         <p>Your memories and inspiration, all in one place.</p>
       </div>
     
       <div>
         <PhotoGallery images={images} />
       </div>
-      <div>
-        <p>This is the Home page</p>
-        <Link to="/">
-            <button type="button">Go to Login</button>
-        </Link>
-      </div>
-    
+      <Link to="/">
+          <button type="button">Sign Out</button>
+      </Link>
     </>
   );
 };
