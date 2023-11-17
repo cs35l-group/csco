@@ -10,8 +10,10 @@ CS35L Project
 4. Run `npm install` to install new node modules if they were added by others
 5. Run `npm start` to run the project in browser local host
 
-
 ### Deployment Commands
 - `npm start`
 - `npm test`
 - `npm run build`
+
+# `npm start`
+- this command allows you to see how certain things are reviewed 
