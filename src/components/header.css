@@ -1,0 +1,37 @@
+/*header.css */
+header {
+  background-color: #ffffff;
+  color: rgb(255, 255, 255);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-container {
+  margin: auto; 
+}
+
+.button-container {
+  text-align: right;
+}
+
+/* Styling for the login button */
+.button-container button {
+  background-color: #3a3b3b;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 15px;
+  font-family: 'florensa-demo', sans-serif;
+}
+
+/* Hover effect for the button */
+.button-container button:hover {
+  background-color: #3a3b3b;
+}
+
+h1 {
+  margin: 0; 
+}
