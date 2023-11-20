@@ -2,11 +2,14 @@ import React from 'react';
 import './home.css'
 import PhotoGallery from '../components/photogallery'
 import Header from '../components/header'
+import SearchBar from '../components/searchbar'
 import { Link } from 'react-router-dom';
 
 
 
 function Home() {
+
+  
 
   const images = [
     require('../assets/images/image1.jpeg'),
@@ -23,6 +26,9 @@ function Home() {
     require('../assets/images/image1.jpeg'),
     // Add more image URLs as needed
   ];
+
+
+
   return (
     <>
       <div>
@@ -31,7 +37,9 @@ function Home() {
       <div>
         <p>Your memories and inspiration, all in one place.</p>
       </div>
-    
+      <div>
+        <SearchBar />
+      </div>
       <div>
         <PhotoGallery images={images} />
       </div>
