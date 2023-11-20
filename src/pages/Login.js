@@ -44,12 +44,17 @@ function Login() {
       },
       body: JSON.stringify({ username, password }),
     })
-    .then(response => response.json())
-    .then(data => {
-      console.log('User signed up!:', data)
-      navigate('/home')
+    .then(response => {
+      if (response.ok){
+        const data = response.json();
+        console.log('User signed up!:', data)
+        navigate('/home')
+      }
+      else{ 
+        alert("USERNAME EXISTS")
+      }
     })
-    .catch(error => console.error('Error signing up:', error));
+    .catch(err => console.error('Error signing up:', err));
   };
 
   return (
