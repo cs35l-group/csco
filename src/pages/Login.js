@@ -10,26 +10,26 @@ function Login() {
 
   let navigate = useNavigate();
 
-  const handleLoginSubmit = (event) => {
-    event.preventDefault();
-    if (username == "" || password == "") {
-      console.log("Username and password fields cannot be blank")
-      return;
-    }
-    fetch('http://localhost:4000/api/logins', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ username, password }),
-    })
-    .then(response => response.json())
-    .then(data => {
-      console.log('User logged in!:', data)
-      navigate('/home')
-    })
-    .catch(error => console.error('Error signing up:', error));
-  };
+  // const handleLoginSubmit = (event) => {
+  //   event.preventDefault();
+  //   if (username == "" || password == "") {
+  //     console.log("Username and password fields cannot be blank")
+  //     return;
+  //   }
+  //   fetch('http://localhost:4000/api/logins', {
+  //     method: 'GET',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify({ username, password }),
+  //   })
+  //   .then(response => response.json())
+  //   .then(data => {
+  //     console.log('User logged in!:', data)
+  //     navigate('/home')
+  //   })
+  //   .catch(error => console.error('Error signing up:', error));
+  // };
 
   const handleSignUpSubmit = (event) => {
     event.preventDefault();
