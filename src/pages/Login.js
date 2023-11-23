@@ -10,87 +10,87 @@ function Login() {
 
   let navigate = useNavigate();
 
-  // const handleLoginSubmit = (event) => {
-  //   event.preventDefault();
-  //   if (username == "" || password == "") {
-  //     console.log("Username and password fields cannot be blank")
-  //     return;
-  //   }
-  //   fetch('http://localhost:4000/api/logins', {
-  //     method: 'GET',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify({ username, password }),
-  //   })
-  //   .then(response => response.json())
-  //   .then(data => {
-  //     console.log('User logged in!:', data)
-  //     navigate('/home')
-  //   })
-  //   .catch(error => console.error('Error signing up:', error));
-  // };
-
-  const handleSignUpSubmit = (event) => {
+  const handleLoginSubmit = (event) => {
     event.preventDefault();
     if (username == "" || password == "") {
-      console.log("Username and password fields cannot be blank")
+      alert("Username and password fields cannot be blank")
       return;
     }
+    const login_type = "LOGIN"
+
     fetch('http://localhost:4000/api/logins', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify({ username, password, login_type }),
     })
-    .then(response => {
-      if (response.ok){
-        const data = response.json();
-        console.log('User signed up!:', data)
+    .then(async response => {
+      const data = await response.json();
+      if (response.ok) {
+        console.log("User logged in! ", data)
         navigate('/home')
+        return;
+      } else {
+        alert(data.message)
       }
-      else{ 
-        alert("USERNAME EXISTS")
+    })
+    .catch(err => console.error('Error signing up:', err));
+  };
+
+  const handleSignUpSubmit = (event) => {
+    event.preventDefault();
+    if (username == "" || password == "") {
+      alert("Username and password fields cannot be blank")
+      return;
+    }
+    const login_type = "SIGNUP"
+    fetch('http://localhost:4000/api/logins', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username, password, login_type }),
+    })
+    .then(async response => {
+      const data = await response.json();
+      if (response.ok) {
+        console.log("User signed up! ", data)
+        navigate('/home')
+        return;
+      } else {
+        alert(data.message)
       }
     })
     .catch(err => console.error('Error signing up:', err));
   };
 
   return (
-    <div className="Login-top">
-      {/* <header className="login-header">
-        <h1>
-          CSCO
-        </h1>
-        <p>Log into your account</p>
-      </header> */}
+    <div className="Login-section">
       <p>Log into your account</p>
-      <div className='Login-section'>
-        <form>
-          <div className="form-row">
-            <input
-              type="text"
-              value={username}
-              onChange={e => setUsername(e.target.value)}
-              placeholder="Username"
-            />
-          </div>
-
-          <div className="form-row">
-            <input
-              type="text"
-              value={password}
-              onChange={e => setPassword(e.target.value)}
-              placeholder="Password"
-            />
-            </div>
-        </form> 
-        {/* <button className="LoginButton" type="submit" onClick={handleLoginSubmit}>Login</button> */}
+      <form>
+        <div className="form-row">
+          <input
+            className='user-input'
+            type="text"
+            value={username}
+            onChange={e => setUsername(e.target.value)}
+            placeholder="Username"
+          />
+        </div>
+        <div className="form-row">
+          <input
+            className='password-input'
+            type="password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+            placeholder="Password"
+          />
+        </div>
+      </form> 
+      <div className="login-buttons">
+        <button className="LoginButton" type="submit" onClick={handleLoginSubmit}>Login</button>
         <button className="SignUpButton" type="submit" onClick={handleSignUpSubmit}>Sign Up</button>
-
-
-
       </div>
     </div>
   );

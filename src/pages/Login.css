@@ -2,32 +2,18 @@ body{
     background-color: #3a3b3b;
   }
   
-  .Login-top{
-    margin-top: 150px;
-  }
-  
-  .login-header{
-    margin: auto;
-    text-align: center;
-  }
-  
-  .login-header p{
-    font-size: 20px;
-  }
-  
   .Login-section{
-    display: flex;
-    flex-direction: column;
+    margin-top: 150px;
     text-align: center;
+  }
+
+  .form-row{
+    margin-bottom: 15px;
   }
   
   button[type=submit]{
-    margin: auto;
-    width: 100px;
-  }
-  
-  .form-row{
-    margin-bottom: 15px;
+    margin: 0px 10px 10px 10px;
+    width: 80px;
   }
   
   input {
@@ -35,8 +21,13 @@ body{
     padding: 10px;
     box-sizing: border-box;
     margin-bottom: 5px;
+    /* text-transform: lowercase; */
+  }
+
+  .user-input {
     text-transform: lowercase;
   }
+  
   
   button {
     width: 200px;
