@@ -40,57 +40,58 @@ function Profile() {
                 alert("Invalid URL")
             }
         })
-        .catch(err => console.error('Error signing up:', err));
+        .catch(err => console.error('Error posting:', err));
 
+        fetchImages()
+    }
+
+    const fetchUserProfile = async () => {
+        const token = localStorage.getItem('token');
+        
+        if(!token) {
+            console.log("NO TOKEN")
+            navigate('/')
+        }
+
+        const response = await fetch('http://localhost:4000/api/user-page', {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
+        });
+        const data = await response.json();
+        if (response.ok) {
+          setUserData(data);
+        } else {
+          navigate('/')
+        }
+    };
+
+    const fetchImages = async () => {
+        const token = localStorage.getItem('token');
+        if(!token) {
+            console.log("NO TOKEN")
+            navigate('/')
+        }
+        const response = await fetch('http://localhost:4000/api/posts', {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
+        });
+        const data = await response.json();
+        if (response.ok) {
+            let imgArr = data.posts.map((element) => element.imageUrl).reverse()
+            setImages(imgArr);
+        } else {
+            navigate('/')
+        }
     }
 
     useEffect(() => {
-        const fetchUserProfile = async () => {
-            const token = localStorage.getItem('token');
-            
-            if(!token) {
-                console.log("NO TOKEN")
-                navigate('/')
-            }
-
-            const response = await fetch('http://localhost:4000/api/user-page', {
-              headers: {
-                'Authorization': `Bearer ${token}`,
-                'Content-Type': 'application/json'
-              }
-            });
-            const data = await response.json();
-            if (response.ok) {
-              setUserData(data);
-              fetchImages();
-            } else {
-              navigate('/')
-            }
-        };
-
-        const fetchImages = async () => {
-            const token = localStorage.getItem('token');
-            if(!token) {
-                console.log("NO TOKEN")
-                navigate('/')
-            }
-            const response = await fetch('http://localhost:4000/api/posts', {
-              headers: {
-                'Authorization': `Bearer ${token}`,
-                'Content-Type': 'application/json'
-              }
-            });
-            const data = await response.json();
-            if (response.ok) {
-                let imgArr = data.posts.map((element) => element.imageUrl).reverse()
-                setImages(imgArr);
-            } else {
-                navigate('/')
-            }
-        }
-      
         fetchUserProfile();
-    }, [handlePost]); 
+        fetchImages();
+    }, []); 
 
     if (!userData) {
         return <div>Loading...</div>;
@@ -99,7 +100,7 @@ function Profile() {
     return (
         <div className="profile">
             <h1>@{userData.username}</h1>
-            <div class="photos">
+            <div className="photos">
                 <PhotoGallery images={images} />
 
             </div>
