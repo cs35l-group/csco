@@ -62,7 +62,8 @@ function Login() {
       const data = await response.json();
       if (response.ok) {
         console.log("User signed up! ", data)
-        navigate('/home')
+        localStorage.setItem('token', data.token)
+        navigate('/profile')
         return;
       } else {
         alert(data.message)
