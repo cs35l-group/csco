@@ -1,0 +1,30 @@
+.profile {
+    display: flex;
+    flex-direction: column;
+}
+
+h1{
+    text-align: center;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.photos {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.Post {
+    margin-top: 20px;
+    width: 100px;
+}
+
+.navigation {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.navigate {
+    width: 100px;
+}

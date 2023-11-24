@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './home.css'
 import PhotoGallery from '../components/photogallery'
 import Header from '../components/header'
 import SearchBar from '../components/searchbar'
-import { Link } from 'react-router-dom';
+import SignOut from '../components/signoutbutton'
+import { useEffect } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
 
 
 
 function Home() {
 
-  
+  let navigate = useNavigate();
+  const [posts, setPosts] = useState([])
 
   const images = [
     require('../assets/images/image1.jpeg'),
@@ -27,6 +30,32 @@ function Home() {
     // Add more image URLs as needed
   ];
 
+  const handleProfile = (event) => {
+    event.preventDefault();
+    navigate('/profile')
+  }   
+
+  useEffect(() => {
+    const fetchImages = async () => {
+        const token = "HOME";
+        const response = await fetch('http://localhost:4000/api/posts', {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
+        });
+        const data = await response.json();
+        if (response.ok) {
+            let imgArr = data.posts.map((element) => element.imageUrl).reverse()
+            setPosts(imgArr);
+        } else {
+          navigate('/')
+        }
+    }
+  
+    fetchImages();
+}, []); 
+
 
 
   return (
@@ -40,12 +69,13 @@ function Home() {
       <div>
         <SearchBar />
       </div>
-      <div>
-        <PhotoGallery images={images} />
+      <div className='photos'>
+        <PhotoGallery images={posts} />
       </div>
-      <Link to="/">
-          <button type="button">Sign Out</button>
-      </Link>
+      <div className="navigation">
+          <button className="navigate" onClick={handleProfile}>Profile</button>
+          <SignOut />
+      </div>    
     </>
   );
 };

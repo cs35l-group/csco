@@ -5,3 +5,8 @@ p {
   color: #ffffff; /* Set the text color */
   text-align: center; 
 }
+
+.photos {
+  margin-left: 20px;
+  margin-right: 20px;
+}

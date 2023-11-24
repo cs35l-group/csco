@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import React from 'react';
 import './Login.css'; 
@@ -9,6 +9,11 @@ function Login() {
   const [password, setPassword] = useState('');
 
   let navigate = useNavigate();
+
+  useEffect(() => {
+    // localStorage.setItem("token", null)
+    // localStorage.setItem("otherToken", null)
+  }, []);
 
   const handleLoginSubmit = (event) => {
     event.preventDefault();
@@ -29,7 +34,8 @@ function Login() {
       const data = await response.json();
       if (response.ok) {
         console.log("User logged in! ", data)
-        navigate('/home')
+        localStorage.setItem('token', data.token)
+        navigate('/profile')
         return;
       } else {
         alert(data.message)
