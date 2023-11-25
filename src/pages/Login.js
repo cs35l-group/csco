@@ -4,9 +4,12 @@ import React from 'react';
 import './Login.css'; 
 
 function Login() {
-
+  const [logintype, setLoginType] = useState(''); // Created a state hook for Logintype
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+
+  // UI HOOKS
+  const [isAuthHidden, setAuthHidden] = useState(true);
 
   let navigate = useNavigate();
 
@@ -15,20 +18,18 @@ function Login() {
     // localStorage.setItem("otherToken", null)
   }, []);
 
-  const handleLoginSubmit = (event) => {
-    event.preventDefault();
+  const handleLoginSubmit = () => {
     if (username == "" || password == "") {
-      alert("Username and password fields cannot be blank")
+      showError("Username and password fields cannot be blank")
       return;
     }
-    const login_type = "LOGIN"
 
     fetch('http://localhost:4000/api/logins', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ username, password, login_type }),
+      body: JSON.stringify({ username, password, logintype }),
     })
     .then(async response => {
       const data = await response.json();
@@ -38,25 +39,23 @@ function Login() {
         navigate('/profile')
         return;
       } else {
-        alert(data.message)
+        showError(data.message)
       }
     })
     .catch(err => console.error('Error signing up:', err));
   };
 
-  const handleSignUpSubmit = (event) => {
-    event.preventDefault();
+  const handleSignUpSubmit = () => {
     if (username == "" || password == "") {
-      alert("Username and password fields cannot be blank")
+      showError("Username and password fields cannot be blank")
       return;
     }
-    const login_type = "SIGNUP"
     fetch('http://localhost:4000/api/logins', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ username, password, login_type }),
+      body: JSON.stringify({ username, password, logintype }),
     })
     .then(async response => {
       const data = await response.json();
@@ -66,17 +65,41 @@ function Login() {
         navigate('/profile')
         return;
       } else {
-        alert(data.message)
+        showError(data.message)
       }
     })
     .catch(err => console.error('Error signing up:', err));
   };
 
+  const showError = (msg) => {
+    document.querySelector('.err-msg').innerHTML = msg;
+    document.querySelector('.err-msg').classList.remove('hidden');
+  }
+
+  const showAuth = (type) => {
+    setLoginType(type);
+    setAuthHidden(!isAuthHidden);
+    document.querySelector('.user-input').focus();
+  }
+  const handleSubmit = (e) =>{
+    e.preventDefault();
+    if (logintype == "LOGIN") handleLoginSubmit();
+    else {handleSignUpSubmit();}
+  }
+
   return (
     <div className="Login-section">
-      <p>Log into your account</p>
-      <form>
-        <div className="form-row">
+      <div className="navbar">
+        <div>
+          <a>📷</a>
+          <a>Feed</a>
+        </div>
+        <div>
+          <a class="btn btn2" onClick={()=>{showAuth('LOGIN')}}>Login</a>
+          <a class="btn" onClick={()=>{showAuth('SIGNUP')}}>Sign Up</a>
+        </div>
+      </div>
+      <form className={isAuthHidden ? 'auth hidden' : 'auth'}>
           <input
             className='user-input'
             type="text"
@@ -84,8 +107,6 @@ function Login() {
             onChange={e => setUsername(e.target.value)}
             placeholder="Username"
           />
-        </div>
-        <div className="form-row">
           <input
             className='password-input'
             type="password"
@@ -93,12 +114,9 @@ function Login() {
             onChange={e => setPassword(e.target.value)}
             placeholder="Password"
           />
-        </div>
-      </form> 
-      <div className="login-buttons">
-        <button className="LoginButton" type="submit" onClick={handleLoginSubmit}>Login</button>
-        <button className="SignUpButton" type="submit" onClick={handleSignUpSubmit}>Sign Up</button>
-      </div>
+          <button type="submit" className="button" onClick={handleSubmit}>Submit</button>
+      </form>
+      <div className="err-msg hidden">Message HELLO</div>
     </div>
   );
 }
