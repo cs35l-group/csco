@@ -111,3 +111,8 @@ input:focus{
 .err-msg.hidden {
   display:none;
 }
+
+.icon {
+  font-size:20px;
+  margin-right:10px;
+}

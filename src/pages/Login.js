@@ -91,8 +91,8 @@ function Login() {
     <div className="Login-section">
       <div className="navbar">
         <div>
-          <a>📷</a>
-          <a>Feed</a>
+          <a ><span className="icon">📸</span></a>
+          <a> CSCO</a>
         </div>
         <div>
           <a class="btn btn2" onClick={()=>{showAuth('LOGIN')}}>Login</a>
