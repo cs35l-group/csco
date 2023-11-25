@@ -7,10 +7,13 @@ body{
     text-align: center;
   }
 
-  .form-row{
-    margin-bottom: 15px;
+  .input-fields{
+
   }
   
+  .form-row1{
+    margin-bottom: 15px;
+  }
   button[type=submit]{
     margin: 0px 10px 10px 10px;
     width: 80px;
@@ -18,20 +21,38 @@ body{
   
   input {
     width: 200px;
-    padding: 10px;
+    padding: 12px;
     box-sizing: border-box;
-    margin-bottom: 5px;
+    border-radius: 2px;
+    margin-bottom: 0px;
+    border: 3px solid hsl(196, 11%, 48%)
     /* text-transform: lowercase; */
+  }
+
+  input:focus{
+    outline: 2px solid #628aa4
   }
 
   .user-input {
     text-transform: lowercase;
   }
   
-  
   button {
     width: 200px;
     padding: 10px;
-    box-sizing: border-box;
+    border-radius: 2px;
+    border: 3px solid hsl(196, 11%, 48%)
+    /* box-sizing: border-box; */
   }
-  
+
+  .LoginButton{
+    
+  }
+
+  .LoginButton:hover{
+    background-color: #79a77b;
+  }
+
+  .SignUpButton:hover{
+    background-color: rgb(84, 84, 217);
+  }

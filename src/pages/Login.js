@@ -74,27 +74,29 @@ function Login() {
 
   return (
     <div className="Login-section">
-      <p>Log into your account</p>
-      <form>
-        <div className="form-row">
-          <input
-            className='user-input'
-            type="text"
-            value={username}
-            onChange={e => setUsername(e.target.value)}
-            placeholder="Username"
-          />
-        </div>
-        <div className="form-row">
-          <input
-            className='password-input'
-            type="password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-            placeholder="Password"
-          />
-        </div>
-      </form> 
+      <div className="input-fields">
+        <p>Log in or Sign Up</p>
+        <form>
+          <div className="form-row1">
+            <input
+              className='user-input'
+              type="text"
+              value={username}
+              onChange={e => setUsername(e.target.value)}
+              placeholder="Username"
+            />
+          </div>
+          <div className="form-row2">
+            <input
+              className='password-input'
+              type="password"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              placeholder="Password"
+            />
+          </div>
+        </form>
+      </div> 
       <div className="login-buttons">
         <button className="LoginButton" type="submit" onClick={handleLoginSubmit}>Login</button>
         <button className="SignUpButton" type="submit" onClick={handleSignUpSubmit}>Sign Up</button>
