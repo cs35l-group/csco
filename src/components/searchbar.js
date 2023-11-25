@@ -1,12 +1,45 @@
 import React from 'react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './searchbar.css'
 
 function SearchBar() {
     const [username, setUsername] = useState('');
 
+    let navigate = useNavigate();
+
     const handleSearchSubmit = (event) => {
         event.preventDefault();
+
+        if (username == "") {
+          alert("Username field cannot be blank")
+          return;
+        }
+
+        fetch('http://localhost:4000/api/search', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ username }),
+        })
+
+        .then(async response => {
+          console.log(response);
+          const data = await response.json();
+          if (response.ok) {
+            console.log("User found! ", data)
+            navigate('/profile')
+            return;
+          } else {
+            alert(data.message)
+          }
+        })
+        .catch(err => console.error('User not Found:', err));
+      };
+          
+          
+
         // fetch('http://localhost:4000/api/logins', {
         //   method: 'GET',
         //   headers: {
@@ -20,8 +53,6 @@ function SearchBar() {
         //   navigate('/home')
         // })
         // .catch(error => console.error('Error signing up:', error));
-        console.log("Searched for user: " + username);
-    };
 
     const handleKeyPress = e => {
         if (e.keyCode === 13) {
