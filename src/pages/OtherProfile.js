@@ -59,7 +59,7 @@ function OtherProfile() {
             let imgArr = data.posts.map((element) => element.imageUrl).reverse()
             setImages(imgArr);
         } else {
-            navigate('home')
+            navigate('/home')
         }
     }
 

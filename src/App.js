@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from "react-dom/client"; //for rendering React components into the DOM
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; //for using react router for connecting pages together
 import Home from './pages/home'
-import Login from './pages/Login'
+import LandingPage from './pages/LandingPage'
 import Profile from './pages/Profile'
 import OtherProfile from './pages/OtherProfile'
 
@@ -17,7 +17,7 @@ function App() {
         <div>
           {/* Navigation links can go here */}
           <Routes>
-            <Route path="/" element={<Login />} exact/>
+            <Route path="/" element={<LandingPage />} exact/>
             <Route path="/home" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/search" element={<OtherProfile />} />
