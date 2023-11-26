@@ -11,8 +11,8 @@ function Login() {
   let navigate = useNavigate();
 
   useEffect(() => {
-    // localStorage.setItem("token", null)
-    // localStorage.setItem("otherToken", null)
+    localStorage.setItem("token", null)
+    localStorage.setItem("otherToken", null)
   }, []);
 
   const handleLoginSubmit = (event) => {

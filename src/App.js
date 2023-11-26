@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; //for
 import Home from './pages/home'
 import Login from './pages/Login'
 import Profile from './pages/Profile'
+import OtherProfile from './pages/OtherProfile'
+
 
 import './App.css'; 
 
@@ -18,6 +20,7 @@ function App() {
             <Route path="/" element={<Login />} exact/>
             <Route path="/home" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/search" element={<OtherProfile />} />
           </Routes>
         </div>
       </Router>
