@@ -93,7 +93,7 @@ function Login() {
       <div className="Login-section">
       <div className="navbar">
         <div>
-          <img src={logo}/>
+          <img src={logo} onClick={()=>{window.location.reload()}}/>
           {/* <a> CSCO</a> */}
         </div>
         <div>
