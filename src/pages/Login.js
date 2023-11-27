@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import React from 'react';
 import './Login.css'; 
+import logo from '../assets/logo files/logo.png'
 
 function Login() {
   const [logintype, setLoginType] = useState(''); // Created a state hook for Logintype
@@ -88,11 +89,12 @@ function Login() {
   }
 
   return (
-    <div className="Login-section">
+    <div className="auth-con">
+      <div className="Login-section">
       <div className="navbar">
         <div>
-          <a ><span className="icon">📸</span></a>
-          <a> CSCO</a>
+          <img src={logo}/>
+          {/* <a> CSCO</a> */}
         </div>
         <div>
           <a class="btn btn2" onClick={()=>{showAuth('LOGIN')}}>Login</a>
@@ -118,6 +120,8 @@ function Login() {
       </form>
       <div className="err-msg hidden">Message HELLO</div>
     </div>
+    </div>
+    
   );
 }
 

@@ -4,7 +4,6 @@ main {
     background: rgb(13, 13, 13);
     min-width: 100vw;
     min-height: 100vh;
-    padding-top:80px;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -13,7 +12,7 @@ main {
     font-weight:300;
     font-size: 50px;
     z-index:2;
-    margin-top:200px;
+    margin-top:300px;
 }
 
 .landing-img{
