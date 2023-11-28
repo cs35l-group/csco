@@ -60,7 +60,6 @@ function SearchBar() {
               placeholder="Search for User"
             />
           <button className="SearchButton" type="submit" onClick={handleSearchSubmit}>Search</button>
-
         </form> 
 
     );

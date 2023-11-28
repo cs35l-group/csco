@@ -64,18 +64,18 @@ function Home() {
         <Header />
       </div>
       <div>
-        <p>Your memories and inspiration, all in one place.</p>
+        <p>Your memories and inspiration, all in one place.</p> 
       </div>
       <div>
         <SearchBar />
       </div>
-      <div className='photos'>
-        <PhotoGallery images={posts} />
-      </div>
       <div className="navigation">
           <button className="navigate" onClick={handleProfile}>Profile</button>
           <SignOut />
-      </div>    
+        </div> 
+      <div className='photos'>
+        <PhotoGallery images={posts} />
+      </div>  
     </>
   );
 };

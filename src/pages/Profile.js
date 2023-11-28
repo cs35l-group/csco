@@ -117,9 +117,7 @@ function Profile() {
                     <button className="navigate" onClick={handleHome}>Home</button>
                     <SignOut />
                 </div>    
-            </form>  
-
-                   
+            </form>      
         </div>
     );
 }
