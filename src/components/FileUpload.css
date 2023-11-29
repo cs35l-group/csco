@@ -3,7 +3,17 @@
   margin: 0 auto;
   padding: 20px;
   font-family: "Poppins";
-  color:rgb(255, 255, 255)
+  color: rgb(255, 255, 255);
+}
+
+.upload-container label {
+  display: inline-block;
+  margin-right: 20px;
+  padding: 20px
+}
+
+.upload-container label input {
+  margin-right: 5px;
 }
 
 .upload-dropzone {
@@ -11,6 +21,10 @@
   padding: 20px;
   text-align: center;
   cursor: pointer;
+}
+
+.upload-dropzone p{
+  font-size: 15px;
 }
 
 .uploaded-files {
@@ -30,4 +44,21 @@
   text-align: center;
   margin-top: 20px;
 }
+
+.upload-button {
+  margin-top: 20px;
+  background-color: rgb(19, 79, 139);
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: "Poppins";
+  font-weight: 50;
+}
+
+.upload-button:hover {
+background-color: rgb(40, 138, 235);
+}
+
 
