@@ -17,7 +17,18 @@ h1{
 
 .Post {
     margin-top: 20px;
-    width: 100px;
+    background-color: rgb(19, 79, 139);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: "Poppins";
+    font-weight: 50;
+}
+
+.Post:hover {
+  background-color: rgb(40, 138, 235);
 }
 
 .navigation {

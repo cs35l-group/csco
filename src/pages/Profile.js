@@ -5,7 +5,7 @@ import PhotoGallery from '../components/photogallery';
 import './Profile.css'
 import React from 'react';
 import SignOut from '../components/signoutbutton';
-
+import FileUpload from '../components/FileUpload'; 
 
 
 function Profile() {
@@ -112,13 +112,18 @@ function Profile() {
                 onChange={e => setPost(e.target.value)}
                 placeholder="Image URL"
                 />
+                
+                <div>
+                    <FileUpload /> 
+                </div>
+
                 <button className="Post" onClick={handlePost}>Post Image</button>
+                
                 <div className="navigation">
                     <button className="navigate" onClick={handleHome}>Home</button>
                     <SignOut />
                 </div>    
             </form>  
-
                    
         </div>
     );

@@ -5,7 +5,6 @@ import Home from './pages/home'
 import LandingPage from './pages/LandingPage'
 import Profile from './pages/Profile'
 import OtherProfile from './pages/OtherProfile'
-import FileUpload from './pages/UploadPage'
 
 
 import './App.css'; 
@@ -22,7 +21,6 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/search" element={<OtherProfile />} />
-            <Route path="/upload" element={<FileUpload />} />
           </Routes>
         </div>
       </Router>

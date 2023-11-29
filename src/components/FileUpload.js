@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import { useDropzone } from 'react-dropzone';
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import './UploadPage.css';
-import Header from '../components/header';
+import './FileUpload.css';
 
 const FileUpload = () => {
   const [uploadedFiles, setUploadedFiles] = useState([]);
@@ -14,14 +11,7 @@ const FileUpload = () => {
   });
 
   return (
-    <>
-    <div>
-      <Header />
-    </div>
     <div className="upload-container">
-        <div className="upload-header">
-          <h2>Create a Post</h2>
-        </div>
         <div {...getRootProps()} className="upload-dropzone">
           <input {...getInputProps()} />
           <p>Drag and drop your image here</p>
@@ -34,11 +24,7 @@ const FileUpload = () => {
             ))}
           </ul>
         </div>
-        <div className="upload-actions">
-          <button className="upload-button">Create Post</button>
-        </div>
       </div>
-    </>
   );
 };
 
