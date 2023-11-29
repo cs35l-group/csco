@@ -1,0 +1,54 @@
+.upload-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 100px;
+  font-family: "Poppins";
+  color:rgb(255, 255, 255)
+}
+
+.upload-header {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 20px;
+  margin-top:10px;
+}
+
+.upload-dropzone {
+  border: 2px dashed #ccc;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.uploaded-files {
+  margin-top: 20px;
+}
+
+.uploaded-files ul {
+  list-style: none;
+  padding: 0;
+}
+
+.uploaded-files li {
+  margin-bottom: 5px;
+}
+
+.upload-actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.upload-button {
+  background-color: rgb(19, 79, 139);
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: "Poppins";
+  font-weight: 50;
+}
+
+.upload-button:hover {
+  background-color: rgb(40, 138, 235);
+}
