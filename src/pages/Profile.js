@@ -5,6 +5,11 @@ import PhotoGallery from '../components/photogallery';
 import './Profile.css'
 import React from 'react';
 import SignOut from '../components/signoutbutton';
+import OpenAI from "openai";
+
+
+const openai = new OpenAI({apiKey: "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", dangerouslyAllowBrowser: true});
+
 
 
 
@@ -20,9 +25,34 @@ function Profile() {
         navigate('/home')
     }
 
+    async function getVibe() {
+        const response = await openai.chat.completions.create({
+          model: "gpt-4-vision-preview",
+          messages: [
+            {
+              role: "user",
+              content: [
+                { type: "text", text: "Describe the vibe of this image in 5 words" },
+                {
+                  type: "image_url",
+                  image_url: {
+                    "url": post,
+                  },
+                },
+              ],
+            },
+          ],
+        });
+        console.log(response.choices[0]);
+    }
+      
+
     const handlePost = (event) => {
         event.preventDefault();
         const token = localStorage.getItem("token")
+        
+        getVibe();
+
         fetch('http://localhost:4000/api/posts', {
             method: 'POST',
             headers: {
