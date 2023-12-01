@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import React from 'react';
 import './Login.css'; 
 
+import logo from '../assets/logo files/logo.png'
+
 function Login() {
   const [logintype, setLoginType] = useState(''); // Created a state hook for Logintype
   const [username, setUsername] = useState('');
@@ -91,8 +93,7 @@ function Login() {
     <div className="Login-section">
       <div className="navbar">
         <div>
-          <a ><span className="icon">📸</span></a>
-          <a> CSCO</a>
+          <img src={logo} onClick={()=>{window.location.href = "/"}}></img>
         </div>
         <div>
           <a class="btn btn2" onClick={()=>{showAuth('LOGIN')}}>Login</a>
