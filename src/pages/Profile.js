@@ -7,40 +7,88 @@ import React from 'react';
 import SignOut from '../components/signoutbutton';
 import FileUpload from '../components/FileUpload'; 
 
+/* image Processing */
+import ImageColorExtractor from '../components/ImageColorExtractor'
 
 function Profile() {
     let navigate = useNavigate();
     
+    /* For loading existing user information */
     const [userData, setUserData] = useState(null);
     const [images, setImages] = useState([]);
-    const [post, setPost] = useState([null]);
+    const [post, setPost] = useState(null);
+
+    /* For new image upload */
+    const [newImageObj, setNewImgObj] = useState(null);
+    const [newImageUrl, setnewImageUrl] = useState(null); // holds the src of new image
+    const [domColor, setDomColor] = useState('black');
+
+    useEffect(() => {
+        fetchUserProfile();
+        fetchImages();
+    }, []); 
 
     const handleHome = (event) => {
         event.preventDefault();
-        navigate('/home')
+        navigate('/home');
     }
 
     const handlePost = (event) => {
         event.preventDefault();
-        const token = localStorage.getItem("token")
-        fetch('http://localhost:4000/api/posts', {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${token}`,
-                'Content-Type': 'application/json',
-        },
-            body: JSON.stringify({ post }),
-        })
-        .then(async response => {
+        const token = localStorage.getItem("token");
+
+        if (newImageUrl.includes('blob')){ // this is a locally uploaded file
+            const formData = new FormData();
+            formData.append("image", newImageObj);
+            fetch('http://localhost:4000/api/image', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                },
+                body: formData,
+            }).then(async response => {
             const data = await response.json();
-            if (response.ok) {
-                console.log("Posted! ", data)
-                return;
-            } else {
-                alert("Invalid URL")
-            }
-        })
-        .catch(err => console.error('Error posting:', err));
+                if (response.ok) {
+                    console.log("Posted: ", data)
+                    setnewImageUrl(null);
+                    fetchImages();
+                    setDomColor("black");
+                    return;
+                } else {
+                    alert("Invalid URL")
+                    console.log(response);
+                }
+            })
+            .catch(err => console.error('Error posting:', err));
+            return;
+        }
+        else if (newImageUrl.includes('https://')) {
+            fetch('http://localhost:4000/api/posts', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    post: newImageUrl,
+                    caption: "New Uploaded Image",
+                    created_at: Date.now(),
+                }),
+            })
+            .then(async response => {
+                const data = await response.json();
+                if (response.ok) {
+                    setnewImageUrl(null);
+                    fetchImages();
+                    setDomColor("black");
+                    return;
+                } else {
+                    alert("Invalid URL")
+                    console.log(response);
+                }
+            })
+            .catch(err => console.error('Error posting:', err));
+        }
 
         fetchImages()
     }
@@ -81,50 +129,65 @@ function Profile() {
         });
         const data = await response.json();
         if (response.ok) {
-            let imgArr = data.posts.map((element) => element.imageUrl).reverse()
-            setImages(imgArr);
+            const newArr = [];
+            let imgArr = data.posts.map((element) => {
+                var url = element.imageUrl;
+                if (!url.includes('http')){
+                    newArr.push('http://localhost:4000/' + url);
+                } else {
+                    newArr.push(url);
+                }
+            }).reverse()
+            setImages(newArr.reverse());
         } else {
             navigate('/')
         }
     }
 
-    useEffect(() => {
-        fetchUserProfile();
-        fetchImages();
-    }, []); 
+    const uploadimages = (imageFiles) => {
+        setNewImgObj(imageFiles[0]);
+        const url = URL.createObjectURL(imageFiles[0]) // create URL object from image
+        setnewImageUrl(url);
+    }
+
+    const handlePaste = (e) => {
+        var pastedData;
+        e.stopPropagation();
+        e.preventDefault();
+        pastedData = (e.clipboardData || window.clipboardData).getData('Text');
+        setnewImageUrl(pastedData);
+    }
 
     if (!userData) {
         return <div>Loading...</div>;
     }
 
     return (
-        <div className="profile">
+        <div className="profile" onPaste={handlePaste} 
+            style={{background: "linear-gradient(0deg, rgba(18,18,18,1) 40%, " + domColor + " 100%)"}}
+        >
             <h1>@{userData.username}</h1>
+            <br></br>
+            { newImageUrl == null ? 
+            <FileUpload handleUploads={uploadimages} /> 
+            : 
+            // show this if image is staged for upload:
+            <>
+                <ImageColorExtractor imageUrl={newImageUrl} setDomColor={(color)=>{setDomColor(color)}} />
+                <div className="img-con">
+                    <div className="removeBtn" onClick={()=>{setnewImageUrl(null);setDomColor('black')}}>x</div>
+                    <img className="newImage" src={newImageUrl}></img>
+                </div>
+                <button className="Post" onClick={handlePost}>Post Image</button>
+            </>
+            }
             <div className="photos">
                 <PhotoGallery images={images} />
-
             </div>
-
-            <form>
-                <input
-                type="text"
-                value={post}
-                onChange={e => setPost(e.target.value)}
-                placeholder="Image URL"
-                />
-                
-                <div>
-                    <FileUpload /> 
-                </div>
-
-                <button className="Post" onClick={handlePost}>Post Image</button>
-                
-                <div className="navigation">
-                    <button className="navigate" onClick={handleHome}>Home</button>
-                    <SignOut />
-                </div>    
-            </form>  
-                   
+{/*         <div className="navigation">
+                <button className="navigate" onClick={handleHome}>Home</button>
+                <SignOut />
+            </div> */}                   
         </div>
     );
 }

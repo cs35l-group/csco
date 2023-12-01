@@ -1,9 +1,32 @@
 .upload-container {
-  max-width: 600px;
+  max-width: 500px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px 30px;
   font-family: "Poppins";
   color: rgb(255, 255, 255);
+  background-color:rgb(28, 28, 28);
+  border-radius:25px;
+  border: 2px dashed rgb(79, 79, 79);
+  transition: all 0.1s ease-in-out;
+}
+.upload-container:hover {
+  border: 2px dashed rgb(137, 137, 137);
+}
+
+.upload-container p{
+  padding:0px 0px !important;
+  margin: 0px 0px !important;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  line-height:1.8rem;
+  color:grey;
+  font-size:16pt;
+}
+
+.upload-container svg[data-testid="AddPhotoAlternateIcon"]{
+  scale: 2;
+  margin: 12px;
+  opacity:0.5;
 }
 
 .upload-container label {
@@ -17,14 +40,16 @@
 }
 
 .upload-dropzone {
-  border: 2px dashed #ccc;
-  padding: 20px;
+  border-radius:20px;
+  padding: 18px 20px;
   text-align: center;
   cursor: pointer;
 }
 
 .upload-dropzone p{
-  font-size: 15px;
+  font-size: 11pt;
+  line-height:26px;
+  padding-top:16px !important;
 }
 
 .uploaded-files {
@@ -45,7 +70,7 @@
   margin-top: 20px;
 }
 
-.upload-button {
+/* .upload-button {
   margin-top: 20px;
   background-color: rgb(19, 79, 139);
   color: #fff;
@@ -55,10 +80,10 @@
   font-size: 16px;
   font-family: "Poppins";
   font-weight: 50;
-}
+} */
 
-.upload-button:hover {
+/* .upload-button:hover {
 background-color: rgb(40, 138, 235);
-}
+} */
 
 

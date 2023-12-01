@@ -58,3 +58,9 @@ main {
     bottom:-150px;
 }
 
+.auth-con {
+    width:100%;
+    display:flex;
+    justify-content: space-around;
+    position:fixed;
+}

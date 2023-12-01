@@ -1,17 +1,30 @@
 import React, { useState } from 'react';
-import { useDropzone } from 'react-dropzone';
+import { useDropzone } from 'react-dropzone'; // for drag and drop
+import ImageIcon from '@mui/icons-material/AddPhotoAlternate'; // import icons
 import './FileUpload.css';
 
-const FileUpload = () => {
-  const [selectedOption, setSelectedOption] = useState(null); // 'url' or 'upload'
+const FileUpload = ({handleUploads}) => {
+  const [selectedOption, setSelectedOption] = useState(null); // 'url' or 'upload' -> change of this state indicates the user has uploaded a fle
   const [uploadedFiles, setUploadedFiles] = useState([]);
   const [imageUrl, setImageUrl] = useState('');
   const { getRootProps, getInputProps } = useDropzone({
     onDrop: (acceptedFiles) => {
-      setUploadedFiles(acceptedFiles);
-      setSelectedOption('upload');
-      setImageUrl(''); // Reset the URL when uploading files
+      console.log(acceptedFiles);
+      if (!acceptedFiles.every((file) => /\.(jpeg|png|jpg)$/.test(file.name.toLowerCase())) || acceptedFiles.length != 1){
+        alert('Upload error, make sure you are uploading one jpg and png')
+      }
+      else {
+        setUploadedFiles(acceptedFiles);
+        setSelectedOption('upload');
+        setImageUrl(''); // Reset the URL when uploading files
+        handleUploads(acceptedFiles);
+      }
     },
+    accept: { // we want to only accept image files of jpeg and png type
+      'image/jpeg': [],
+      'image/png': []
+    },
+    multiple: false // only allow one image to be uploaded at a time
   });
 
   const handlePost = async (event) => {
@@ -56,6 +69,12 @@ const FileUpload = () => {
 
   return (
     <div className="upload-container">
+      <div {...getRootProps()} className="upload-dropzone">
+        <input {...getInputProps()} />
+        <ImageIcon className="imgicon" />
+        <p>Drag and drop an image or<br />press ⌘+V to paste a link.</p>
+      </div>
+      {/* Sharlene's Implementation
       <div>
         <label>
           <input
@@ -104,6 +123,7 @@ const FileUpload = () => {
         </div>
       ) : null}
       <button className="upload-button" onClick={handlePost}> Create Post </button>
+            */}
     </div>
   );
 };
