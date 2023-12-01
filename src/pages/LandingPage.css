@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant:wght@300&display=swap');
 
 main {
-    background: rgb(62, 60, 60);
     min-width: 100vw;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
@@ -9,12 +8,12 @@ main {
 }
 
 .slogan {
-    font-family: 'Georgia', serif;
-    font-weight:300;
+    font-family: 'Cormorant', serif;
+    font-weight:500;
     font-size: 40px;
     z-index:2;
-    margin-top:240px;
-    color:rgb(214, 203, 203)
+    margin-top:40vh;
+    color:rgb(229, 229, 229)
 }
 
 .landing-img{

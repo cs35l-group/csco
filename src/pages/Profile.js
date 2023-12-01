@@ -184,27 +184,10 @@ function Profile() {
             <div className="photos">
                 <PhotoGallery images={images} />
             </div>
-<<<<<<< HEAD
-
-            <form>
-                <input
-                type="text"
-                value={post}
-                onChange={e => setPost(e.target.value)}
-                placeholder="Image URL"
-                />
-                <button className="Post" onClick={handlePost}>Post Image</button>
-                <div className="navigation">
-                    <button className="navigate" onClick={handleHome}>Home</button>
-                    <SignOut />
-                </div>    
-            </form>      
-=======
 {/*         <div className="navigation">
                 <button className="navigate" onClick={handleHome}>Home</button>
                 <SignOut />
             </div> */}                   
->>>>>>> upload-page-sharlene
         </div>
     );
 }
