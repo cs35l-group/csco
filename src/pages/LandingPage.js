@@ -49,7 +49,9 @@ const LandingPage = () => {
                 <img className="landing-img three" data-speed="-4" src="https://images.unsplash.com/photo-1682687981674-0927add86f2b?q=80&w=3687&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"></img>
                 <img className="landing-img four" data-speed="2" src="https://i.ibb.co/1T1Pscm/photo-1603101947606-df77d33c000e-copy.png"></img>
                 <img className="landing-img five" data-speed="4" src="https://images.unsplash.com/photo-1597624543234-d14e45b22112?q=80&w=2505&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"></img>
-                <Auth />
+                <div className="auth-con">
+                    <Auth />
+                </div>
                 <h1 className="slogan">Sharable collections <br />for your digital snapshots.</h1>
                 <canvas></canvas>
             </main>

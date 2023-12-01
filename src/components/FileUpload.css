@@ -1,0 +1,89 @@
+.upload-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 10px 30px;
+  font-family: "Poppins";
+  color: rgb(255, 255, 255);
+  background-color:rgb(28, 28, 28);
+  border-radius:25px;
+  border: 2px dashed rgb(79, 79, 79);
+  transition: all 0.1s ease-in-out;
+}
+.upload-container:hover {
+  border: 2px dashed rgb(137, 137, 137);
+}
+
+.upload-container p{
+  padding:0px 0px !important;
+  margin: 0px 0px !important;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  line-height:1.8rem;
+  color:grey;
+  font-size:16pt;
+}
+
+.upload-container svg[data-testid="AddPhotoAlternateIcon"]{
+  scale: 2;
+  margin: 12px;
+  opacity:0.5;
+}
+
+.upload-container label {
+  display: inline-block;
+  margin-right: 20px;
+  padding: 20px
+}
+
+.upload-container label input {
+  margin-right: 5px;
+}
+
+.upload-dropzone {
+  border-radius:20px;
+  padding: 18px 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.upload-dropzone p{
+  font-size: 11pt;
+  line-height:26px;
+  padding-top:16px !important;
+}
+
+.uploaded-files {
+  margin-top: 20px;
+}
+
+.uploaded-files ul {
+  list-style: none;
+  padding: 0;
+}
+
+.uploaded-files li {
+  margin-bottom: 5px;
+}
+
+.upload-actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* .upload-button {
+  margin-top: 20px;
+  background-color: rgb(19, 79, 139);
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: "Poppins";
+  font-weight: 50;
+} */
+
+/* .upload-button:hover {
+background-color: rgb(40, 138, 235);
+} */
+
+

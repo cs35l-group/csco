@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 body{
-  background-color: #3a3b3b;
   font-family:"Poppins";
 }
 
@@ -17,9 +16,10 @@ body{
   font-size:11.5pt;
   background-color:rgb(39, 39, 39);
   width: 500px;
-  margin: auto;
+  margin: 0px auto;
   padding:20px 16px;
   border-radius:16px;
+  z-index:100;
 }
 
 .navbar{
@@ -61,21 +61,39 @@ body{
   color:white;
 }
 
-button[type="submit"]{
+.navbar img{
+  padding-top: 5px;
+  padding-left: 5px;
+  width: 75px;
+  height: auto;
+  filter: invert(1);
+  cursor:pointer;
+  padding-top:10px;
+}
+
+button, button[type="submit"]{
+  max-width:400px;
+  margin:0 auto;
   font-family:"Poppins";
   font-size:11.5pt;
   font-weight:500;
-  width:fit-content;
   height: fit-content;
   background:linear-gradient(48deg, rgba(90,21,190,1) 0%, rgba(90,39,237,1) 56%, rgba(57,148,248,1) 100%);
   border-spacing: 20px;
-  border:rgba(255, 255, 255, 0.266) 1.5px solid;
+  border:rgba(255, 255, 255, 0.368) 2px solid;
   padding: 8px 20px;
   border-radius: 12px;
   color:white;
   cursor:pointer;
   outline:none;
   box-shadow:none;
+  transition: all 0.1s ease-in-out;
+}
+
+button:hover {
+  border:rgba(255, 255, 255, 0.528) 2px solid;
+  opacity:0.9;
+  scale:1.02;
 }
 
 input {
@@ -108,7 +126,7 @@ input:focus{
   margin-top:20px;
   padding-bottom:0px;
   opacity: 1;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .auth.hidden {
