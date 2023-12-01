@@ -16,7 +16,7 @@ function Profile() {
     /* For loading existing user information */
     const [userData, setUserData] = useState(null);
     const [images, setImages] = useState([]);
-    const [post, setPost] = useState(null);
+    const [caption, setCaption] = useState(null);
 
     /* For new image upload */
     const [newImageObj, setNewImgObj] = useState(null);
@@ -40,6 +40,7 @@ function Profile() {
         if (newImageUrl.includes('blob')){ // this is a locally uploaded file
             const formData = new FormData();
             formData.append("image", newImageObj);
+            formData.append("caption", caption ? caption : null);
             fetch('http://localhost:4000/api/image', {
                 method: 'POST',
                 headers: {
@@ -71,7 +72,7 @@ function Profile() {
                 },
                 body: JSON.stringify({
                     post: newImageUrl,
-                    caption: "New Uploaded Image",
+                    caption: caption ? caption : null,
                     created_at: Date.now(),
                 }),
             })
@@ -130,14 +131,14 @@ function Profile() {
         const data = await response.json();
         if (response.ok) {
             const newArr = [];
-            let imgArr = data.posts.map((element) => {
-                var url = element.imageUrl;
-                if (!url.includes('http')){
-                    newArr.push('http://localhost:4000/' + url);
-                } else {
-                    newArr.push(url);
-                }
-            }).reverse()
+            data.posts.map((element) => {
+                var obj = {
+                    url: element.imageUrl,
+                    caption: element.caption ? element.caption : null
+                };
+                newArr.push(obj);
+            });
+
             setImages(newArr.reverse());
         } else {
             navigate('/')
@@ -164,7 +165,7 @@ function Profile() {
 
     return (
         <div className="profile" onPaste={handlePaste} 
-            style={{background: "linear-gradient(0deg, rgba(18,18,18,1) 40%, " + domColor + " 100%)"}}
+            style={{background: "linear-gradient(0deg, rgba(18,18,18,1) 80%, " + domColor + " 100%)"}}
         >
             <h1>@{userData.username}</h1>
             <br></br>
@@ -178,6 +179,7 @@ function Profile() {
                     <div className="removeBtn" onClick={()=>{setnewImageUrl(null);setDomColor('black')}}>x</div>
                     <img className="newImage" src={newImageUrl}></img>
                 </div>
+                <textarea className="caption-edit" placeholder="Write something about this memory" onChange={(e)=>{setCaption(e.target.value)}}></textarea>
                 <button className="Post" onClick={handlePost}>Post Image</button>
             </>
             }

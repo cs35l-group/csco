@@ -52,7 +52,7 @@ h1{
 
 .newImage{
     max-width:650px;
-    max-height:60vh;
+    max-height:45vh;
     border: 2px solid rgba(255, 255, 255, 0.029);
     border-radius:6px;
     box-shadow: 2px 2px 30px 10px rgba(0, 0, 0, 0.167);
@@ -81,4 +81,31 @@ h1{
 }
 .img-con:hover .removeBtn {
     opacity:1;
+}
+
+.caption-edit {
+    font-family:"poppins";
+    font-size:12pt;
+    max-width:500px;
+    margin: 24px auto;
+    text-align:center;
+    border:0px solid rgba(255, 255, 255, 0) !important;
+    outline:0px solid rgba(255, 255, 255, 0) !important;
+    line-height:24px;
+    mix-blend-mode:color-dodge;
+    color:rgba(255, 255, 255, 0.779);
+    background-color:rgba(255, 255, 255, 0);
+    resize: none;
+    height:fit-content;
+    width:500px;
+    overflow: auto;
+}
+
+.caption-edit[placeholder]:empty:before {
+    content: attr(placeholder);
+    color: #ffffff3c; 
+}
+.caption-edit:active{
+    border:none;
+    outline:none;
 }

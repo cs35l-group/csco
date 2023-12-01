@@ -46,8 +46,16 @@ function Home() {
         });
         const data = await response.json();
         if (response.ok) {
-            let imgArr = data.posts.map((element) => element.imageUrl).reverse()
-            setPosts(imgArr);
+            const newArr = [];
+            data.posts.map((element) => {
+                var obj = {
+                    url: element.imageUrl,
+                    caption: element.caption ? element.caption : null
+                };
+                newArr.push(obj);
+            });
+
+            setPosts(newArr.reverse());
         } else {
           navigate('/')
         }

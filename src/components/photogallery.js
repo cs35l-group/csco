@@ -10,21 +10,32 @@ const PhotoGallery = ({ images }) => {
     <div class='photogallery'>
       <div className="col">
         {images.map((image, index) => {
+          console.log(image);
           // This is a check to see if data is hosted by CSCO or by external website, then append our root
           // if it's just a relative path within our backend
-          var url = image.includes('http') ? image : 'http://localhost:4000/' + image;
+          var url = (image.url).includes('http') ? image.url : 'http://localhost:4000/' + image.url;
 
           // Loop through every even indexed image, as there are two columns
           if (index%2 == 0){
-            return(<img key={index} src={url} alt={`Photo ${index + 1} Source ${url}`} />)
+            return(
+            <>
+              <img key={index} src={url} alt={`Photo ${index + 1} Source ${url}`} />
+              {image.caption ? <p class='caption'> {image.caption} </p> : <></>}
+            </>
+            )
           }
         })}
       </div>
       <div className="col">
         {images.map((image, index) => {
-          var url = image.includes('http') ? image : 'http://localhost:4000/' + image;
+          var url = (image.url).includes('http') ? image.url : 'http://localhost:4000/' + image.url;
           if (index%2 != 0){
-            return(<img key={index} src={url} alt={`Photo ${index + 1} Source ${url}`} />)
+            return(
+            <>
+              <img key={index} src={url} alt={`Photo ${index + 1} Source ${url}`} />
+              {image.caption ? <p class='caption'> {image.caption} </p> : <></>}
+            </>
+            )
           }
         })}
       </div>
