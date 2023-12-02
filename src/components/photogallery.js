@@ -20,7 +20,7 @@ const PhotoGallery = ({ images }) => {
             return(
             <>
               <img key={index} src={url} alt={`Photo ${index + 1} Source ${url}`} />
-              {image.caption ? <p class='caption'> {image.caption} </p> : <></>}
+              {image.caption !== "null" ? <p class='caption'> {image.caption} </p> : <></>}
             </>
             )
           }
@@ -33,7 +33,7 @@ const PhotoGallery = ({ images }) => {
             return(
             <>
               <img key={index} src={url} alt={`Photo ${index + 1} Source ${url}`} />
-              {image.caption ? <p class='caption'> {image.caption} </p> : <></>}
+              {image.caption !== "null" ? <p class='caption'> {image.caption} </p> : <></>}
             </>
             )
           }
