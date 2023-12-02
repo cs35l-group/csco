@@ -17,7 +17,3 @@ p {
   display:flex;
 }
 
-.navigation{
-  display: flex;
-  justify-content: flex-end;
-}
