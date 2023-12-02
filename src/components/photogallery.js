@@ -1,6 +1,8 @@
 import React from 'react';
 import './photogallery.css';
 
+import DeleteButton from '../components/DeleteButton'
+
 import { useEffect, useState } from 'react';
 
 // TODO: refactor columns into reusable components props passing in array
@@ -21,6 +23,7 @@ const PhotoGallery = ({ images }) => {
             <>
               <img key={index} src={url} alt={`Photo ${index + 1} Source ${url}`} />
               {image.caption ? <p class='caption'> {image.caption} </p> : <></>}
+              <DeleteButton />
             </>
             )
           }
