@@ -17,13 +17,13 @@ const PhotoGallery = ({ images }) => {
           // if it's just a relative path within our backend
           var url = (image.url).includes('http') ? image.url : 'http://localhost:4000/' + image.url;
 
-          // Loop through every even indexed image, as there are two columns
+          // Loop through every even indexed image, as there are two columns 
           if (index%2 == 0){
             return(
             <>
               <img key={index} src={url} alt={`Photo ${index + 1} Source ${url}`} />
               {image.caption ? <p class='caption'> {image.caption} </p> : <></>}
-              <DeleteButton />
+              <DeleteButton /> 
             </>
             )
           }
@@ -37,6 +37,7 @@ const PhotoGallery = ({ images }) => {
             <>
               <img key={index} src={url} alt={`Photo ${index + 1} Source ${url}`} />
               {image.caption ? <p class='caption'> {image.caption} </p> : <></>}
+              <DeleteButton /> 
             </>
             )
           }
