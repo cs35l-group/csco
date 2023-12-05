@@ -20,7 +20,10 @@ const PhotoGallery = ({ images }) => {
             return(
             <>
               <img key={index} src={url} alt={`Photo ${index + 1} Source ${url}`} />
-              {image.caption !== "null" ? <p class='caption'> {image.caption} </p> : <></>}
+              <div class='image-text'>
+                {image.caption !== "null" ? <p class='caption'> {image.caption} </p> : <></>}
+                {(image.vibes !== null && image.vibes.length > 0) ? <p class='vibes'> {image.vibes.join(" ")} </p> : <></>}
+              </div>
             </>
             )
           }
@@ -33,7 +36,10 @@ const PhotoGallery = ({ images }) => {
             return(
             <>
               <img key={index} src={url} alt={`Photo ${index + 1} Source ${url}`} />
-              {image.caption !== "null" ? <p class='caption'> {image.caption} </p> : <></>}
+              <div class="image-text">
+                {image.caption !== "null" ? <p class='caption'> {image.caption} </p> : <></>}
+                {(image.vibes !== null && image.vibes.length > 0) ? <p class='vibes'> {image.vibes.join(" ")} </p> : <></>}
+              </div>
             </>
             )
           }

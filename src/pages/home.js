@@ -28,7 +28,8 @@ function Home() {
             data.posts.map((element) => {
                 var obj = {
                     url: element.imageUrl,
-                    caption: element.caption ? element.caption : null
+                    caption: element.caption ? element.caption : null,
+                    vibes: element.vibes ? element.vibes : null
                 };
                 newArr.push(obj);
             });

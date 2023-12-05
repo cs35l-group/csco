@@ -53,6 +53,7 @@ function Profile() {
                 if (response.ok) {
                     console.log("Posted: ", data)
                     setnewImageUrl(null);
+                    setCaption(null);
                     fetchImages();
                     setDomColor("black");
                     return;
@@ -81,6 +82,7 @@ function Profile() {
                 const data = await response.json();
                 if (response.ok) {
                     setnewImageUrl(null);
+                    setCaption(null);
                     fetchImages();
                     setDomColor("black");
                     return;
@@ -135,7 +137,8 @@ function Profile() {
             data.posts.map((element) => {
                 var obj = {
                     url: element.imageUrl,
-                    caption: element.caption ? element.caption : null
+                    caption: element.caption ? element.caption : null,
+                    vibes: element.vibes ? element.vibes : null
                 };
                 newArr.push(obj);
             });
