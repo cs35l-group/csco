@@ -10,30 +10,8 @@ import { Link, useNavigate } from 'react-router-dom';
 
 
 function Home() {
-
   let navigate = useNavigate();
-  const [posts, setPosts] = useState([])
-
-  const images = [
-    require('../assets/images/image1.jpeg'),
-    require('../assets/images/image2.jpeg'),
-    require('../assets/images/image3.jpeg'),
-    require('../assets/images/image4.jpeg'),
-    require('../assets/images/image1.jpeg'),
-    require('../assets/images/image1.jpeg'),
-    require('../assets/images/image2.jpeg'),
-    require('../assets/images/image1.jpeg'),
-    require('../assets/images/image4.jpeg'),
-    require('../assets/images/image3.jpeg'),
-    require('../assets/images/image2.jpeg'),
-    require('../assets/images/image1.jpeg'),
-    // Add more image URLs as needed
-  ];
-
-  const handleProfile = (event) => {
-    event.preventDefault();
-    navigate('/profile')
-  }   
+  const [posts, setPosts] = useState([]) 
 
   useEffect(() => {
     const fetchImages = async () => {
@@ -77,10 +55,6 @@ function Home() {
       <div>
         <SearchBar />
       </div>
-      <div className="navigation">
-          <button className="navigate" onClick={handleProfile}>Profile</button>
-          <SignOut />
-        </div> 
       <div className='photos'>
         <PhotoGallery images={posts} />
       </div>  

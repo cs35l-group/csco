@@ -6,6 +6,7 @@ import './Profile.css'
 import React from 'react';
 import SignOut from '../components/signoutbutton';
 import FileUpload from '../components/FileUpload'; 
+import Header from '../components/header';
 
 /* image Processing */
 import ImageColorExtractor from '../components/ImageColorExtractor'
@@ -164,33 +165,38 @@ function Profile() {
     }
 
     return (
-        <div className="profile" onPaste={handlePaste} 
-            style={{background: "linear-gradient(0deg, rgba(18,18,18,1) 80%, " + domColor + " 100%)"}}
-        >
-            <h1>@{userData.username}</h1>
-            <br></br>
-            { newImageUrl == null ? 
-            <FileUpload handleUploads={uploadimages} /> 
-            : 
-            // show this if image is staged for upload:
-            <>
-                <ImageColorExtractor imageUrl={newImageUrl} setDomColor={(color)=>{setDomColor(color)}} />
-                <div className="img-con">
-                    <div className="removeBtn" onClick={()=>{setnewImageUrl(null);setDomColor('black')}}>x</div>
-                    <img className="newImage" src={newImageUrl}></img>
-                </div>
-                <textarea className="caption-edit" placeholder="Write something about this memory" onChange={(e)=>{setCaption(e.target.value)}}></textarea>
-                <button className="Post" onClick={handlePost}>Post Image</button>
-            </>
-            }
-            <div className="photos">
-                <PhotoGallery images={images} />
-            </div>
-{/*         <div className="navigation">
-                <button className="navigate" onClick={handleHome}>Home</button>
-                <SignOut />
-            </div> */}                   
+        <>
+        <div className="header">
+            <Header />
         </div>
+        <div className="profile" onPaste={handlePaste}
+            style={{ background: "linear-gradient(0deg, rgba(18,18,18,1) 80%, " + domColor + " 100%)" }}
+        >
+                <h1>@{userData.username}</h1>
+                <br></br>
+                {newImageUrl == null ?
+                    <FileUpload handleUploads={uploadimages} />
+                    :
+                    // show this if image is staged for upload:
+                    <>
+                        <ImageColorExtractor imageUrl={newImageUrl} setDomColor={(color) => { setDomColor(color); } } />
+                        <div className="img-con">
+                            <div className="removeBtn" onClick={() => { setnewImageUrl(null); setDomColor('black'); } }>x</div>
+                            <img className="newImage" src={newImageUrl}></img>
+                        </div>
+                        <textarea className="caption-edit" placeholder="Write something about this memory" onChange={(e) => { setCaption(e.target.value); } }></textarea>
+                        <button className="Post" onClick={handlePost}>Post Image</button>
+                    </>}
+                <div className="photos">
+                    <PhotoGallery images={images} />
+                </div>
+                {/*         <div className="navigation">
+                    <button className="navigate" onClick={handleHome}>Home</button>
+                    <SignOut />
+                </div> */}
+
+
+            </div></>
     );
 }
 

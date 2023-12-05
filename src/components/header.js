@@ -1,13 +1,34 @@
 //for header of pages, only have logo for now
-import React from 'react';
-import './header.css'
+import React, { useState } from 'react';
+import './header.css'; 
+import SignOut from './signoutbutton';
+import { Link, useNavigate } from 'react-router-dom';
+import logo from '../assets/logo files/logo-white.svg';
 
-import logo from '../assets/logo files/logo.svg';
 const Header = () => {
-return (
+    let navigate = useNavigate();
+  
+    const handleProfile = (event) => {
+      event.preventDefault();
+      navigate('/profile')
+    }
+
+    return (
     <header>
         <div className="logo-container">
-            <img src={logo} alt="CSCO logo" height="35" />
+            <Link to="/home">
+                <img src={logo} alt="CSCO logo" height="35" />
+            </Link>
+        </div>
+        
+        <div className='nav-con'>
+            <div className="profile-btn-con">
+                <button className="navigate" onClick={handleProfile}>Profile</button>
+            </div> 
+            
+            <div className="signout-btn-con">
+                <SignOut />
+            </div>
         </div>
     </header>
 
