@@ -25,6 +25,9 @@ function Profile() {
     const [domColor, setDomColor] = useState('black');
 
     useEffect(() => {
+        if (localStorage.getItem("token") == null) {
+            navigate('/')
+        }
         fetchUserProfile();
         fetchImages();
     }, []); 
