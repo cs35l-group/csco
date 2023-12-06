@@ -14,6 +14,16 @@ header {
   max-width:300px;
 }
 
+.nav-con button {
+  margin-left:8px;
+  background:none;
+  border-color:rgba(255, 255, 255, 0.061);
+}
+.nav-con button:hover {
+  background-color:rgba(255, 255, 255, 0.088);
+  border-color:rgba(255, 255, 255, 0.201);
+}
+
 .logo-container {
   color: rgb(255, 255, 255);
 }
