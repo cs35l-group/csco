@@ -18,30 +18,50 @@ const PhotoGallery = ({ images }) => {
           // Loop through every even indexed image, as there are two columns
           if (index%2 == 0){
             return(
+
             <>
               <img key={index} src={url} alt={`Photo ${index + 1} Source ${url}`} />
               <div class='image-text'>
                 {image.caption !== "null" ? <p class='caption'> {image.caption} </p> : <></>}
-                {(image.vibes !== null && image.vibes.length > 0) ? <p class='vibes'> {image.vibes.join(" ")} </p> : <></>}
+                <div className='vibe-text'>
+
+                  {(image.vibes !== null && image.vibes.length > 0) ? <p class='vibes'> {image.vibes[0]}</p> : <></>}
+                  {(image.vibes !== null && image.vibes.length > 0) ? <p class='vibes'> {image.vibes[1]}</p> : <></>}
+                  {(image.vibes !== null && image.vibes.length > 0) ? <p class='vibes'> {image.vibes[2]}</p> : <></>}
+
+                </div>
+                
               </div>
             </>
             )
+
           }
         })}
       </div>
+
+
+
       <div className="col">
         {images.map((image, index) => {
           var url = (image.url).includes('http') ? image.url : 'http://localhost:4000/' + image.url;
           if (index%2 != 0){
             return(
-            <>
-              <img key={index} src={url} alt={`Photo ${index + 1} Source ${url}`} />
-              <div class="image-text">
-                {image.caption !== "null" ? <p class='caption'> {image.caption} </p> : <></>}
-                {(image.vibes !== null && image.vibes.length > 0) ? <p class='vibes'> {image.vibes.join(" ")} </p> : <></>}
-              </div>
-            </>
-            )
+
+              <>
+                <img key={index} src={url} alt={`Photo ${index + 1} Source ${url}`} />
+                <div class='image-text'>
+                  {image.caption !== "null" ? <p class='caption'> {image.caption} </p> : <></>}
+                  <div className='vibe-text'>
+  
+                    {(image.vibes !== null && image.vibes.length > 0) ? <p class='vibes'> {image.vibes[0]}</p> : <></>}
+                    {(image.vibes !== null && image.vibes.length > 0) ? <p class='vibes'> {image.vibes[1]}</p> : <></>}
+                    {(image.vibes !== null && image.vibes.length > 0) ? <p class='vibes'> {image.vibes[2]}</p> : <></>}
+  
+                  </div>
+                  
+                </div>
+              </>
+              )
           }
         })}
       </div>
