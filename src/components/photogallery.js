@@ -1,5 +1,6 @@
 import React from 'react';
 import './photogallery.css';
+import DeleteButton from './DeleteButton.js';
 
 import { useEffect, useState } from 'react';
 
@@ -10,7 +11,7 @@ const PhotoGallery = ({ images }) => {
     <div class='photogallery'>
       <div className="col">
         {images.map((image, index) => {
-          console.log(image);
+          // console.log(image);
           // This is a check to see if data is hosted by CSCO or by external website, then append our root
           // if it's just a relative path within our backend
           var url = (image.url).includes('http') ? image.url : 'http://localhost:4000/' + image.url;

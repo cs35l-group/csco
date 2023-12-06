@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import PhotoGallery from '../components/photogallery';
+import PhotoGallery from '../components/profilegallery';
 import './Profile.css'
 import React from 'react';
 import SignOut from '../components/signoutbutton';
@@ -138,7 +138,8 @@ function Profile() {
                 var obj = {
                     url: element.imageUrl,
                     caption: element.caption ? element.caption : null,
-                    vibes: element.vibes ? element.vibes : null
+                    vibes: element.vibes ? element.vibes : null,
+                    id: element._id
                 };
                 newArr.push(obj);
             });
