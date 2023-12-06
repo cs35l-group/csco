@@ -50,7 +50,7 @@ const PhotoGallery = ({ images }) => {
               <>
                 <img key={index} src={url} alt={`Photo ${index + 1} Source ${url}`} />
                 <div class='image-text'>
-                  {image.caption !== "null" ? <p class='caption'> {image.caption} </p> : <></>}
+                  {image.caption != "null" ? <p class='caption'> {image.caption} </p> : <></>}
                   <div className='vibe-text'>
   
                     {(image.vibes !== null && image.vibes.length > 0) ? <p class='vibes'> {image.vibes[0]}</p> : <></>}
