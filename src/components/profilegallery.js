@@ -19,24 +19,26 @@ const PhotoGallery = ({ images }) => {
           // Loop through every even indexed image, as there are two columns
           if (index%2 == 0){
             return(
-
-            <>
-              <img key={index} src={url} alt={`Photo ${index + 1} Source ${url}`} />
-              <div class='image-text'>
-                <DeleteButton imageId={image.id} />
-                {image.caption !== "null" ? <p class='caption'> {image.caption} </p> : <></>}
-                <div className='vibe-text'>
-
-                  {(image.vibes !== null && image.vibes.length > 0) ? <p class='vibes'> {image.vibes[0]}</p> : <></>}
-                  {(image.vibes !== null && image.vibes.length > 0) ? <p class='vibes'> {image.vibes[1]}</p> : <></>}
-                  {(image.vibes !== null && image.vibes.length > 0) ? <p class='vibes'> {image.vibes[2]}</p> : <></>}
-
+                <React.Fragment>
+                <div className="gallery-img-con">
+                    <img key={index} src={url} alt={`Photo ${index + 1} Source ${url}`} />
+                    <div className='gal-del-btn'>
+                        <DeleteButton imageId={image.id} />
+                    </div>
                 </div>
-                
-              </div>
-            </>
-            )
+                <div class='image-text'>
+                    {image.caption !== "null" ? <p class='caption'> {image.caption} </p> : <></>}
+                    <div className='vibe-text'>
 
+                        {(image.vibes !== null && image.vibes.length > 0) ? <p class='vibes'> {image.vibes[0]}</p> : <></>}
+                        {(image.vibes !== null && image.vibes.length > 0) ? <p class='vibes'> {image.vibes[1]}</p> : <></>}
+                        {(image.vibes !== null && image.vibes.length > 0) ? <p class='vibes'> {image.vibes[2]}</p> : <></>}
+
+                    </div>
+                
+                </div>
+                </React.Fragment>
+            )
           }
         })}
       </div>
@@ -49,22 +51,24 @@ const PhotoGallery = ({ images }) => {
           if (index%2 != 0){
             return(
 
-              <>
-                <img key={index} src={url} alt={`Photo ${index + 1} Source ${url}`} />
-                <div class='image-text'>
-                  <DeleteButton imageId={image.id} />
-                  {image.caption !== "null" ? <p class='caption'> {image.caption} </p> : <></>}
-                  <div className='vibe-text'>
-  
-                    {(image.vibes !== null && image.vibes.length > 0) ? <p class='vibes'> {image.vibes[0]}</p> : <></>}
-                    {(image.vibes !== null && image.vibes.length > 0) ? <p class='vibes'> {image.vibes[1]}</p> : <></>}
-                    {(image.vibes !== null && image.vibes.length > 0) ? <p class='vibes'> {image.vibes[2]}</p> : <></>}
-  
-                  </div>
-                  
+                <React.Fragment>
+                <div className="gallery-img-con">
+                    <img key={index} src={url} alt={`Photo ${index + 1} Source ${url}`} />
+                    <div className='gal-del-btn'>
+                        <DeleteButton imageId={image.id} />
+                    </div>
                 </div>
-              </>
-              )
+                <div class='image-text'>
+                    {image.caption !== "null" ? <p class='caption'> {image.caption} </p> : <></>}
+                    <div className='vibe-text'>
+                        {(image.vibes !== null && image.vibes.length > 0) ? <p class='vibes'> {image.vibes[0]}</p> : <></>}
+                        {(image.vibes !== null && image.vibes.length > 0) ? <p class='vibes'> {image.vibes[1]}</p> : <></>}
+                        {(image.vibes !== null && image.vibes.length > 0) ? <p class='vibes'> {image.vibes[2]}</p> : <></>}
+                    </div>
+                
+                </div>
+                </React.Fragment>
+            )
           }
         })}
       </div>

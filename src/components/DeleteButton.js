@@ -1,4 +1,6 @@
 import React from 'react';
+import './DeleteButton.css';
+
 
 const DeleteButton = ({ imageId }) => 
 { 
@@ -33,7 +35,9 @@ const DeleteButton = ({ imageId }) =>
         }
     };
     return(
-        <button onClick={handleDelete}>Delete</button> // displaying the actual button that calls "handleDelete" when clicked
+        <div className="img-con">
+            <div onClick={handleDelete} className='delButton'>x</div> 
+        </div>
     );
 };
 
