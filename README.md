@@ -2,6 +2,11 @@
 
 CS35L Project
 
+To view Web App:
+- Run `npm install` on both the backend repository (csco api) and the front end (csco)
+- Then run `npm start` on both of them
+- Create a new account using "sign up"
+
 # Every time you launch this project:
 
 1. If you are working on a project and haven't merged changes, do not pull or it will override some of your code
