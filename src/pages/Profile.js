@@ -174,7 +174,7 @@ function Profile() {
             <Header />
         </div>
         <div className="profile" onPaste={handlePaste}
-            style={{ background: "linear-gradient(0deg, rgba(18,18,18,1) 80%, " + domColor + " 100%)" }}
+            style={{ background: "linear-gradient(0deg, rgba(18,18,18,1) 65%, " + domColor + " 100%)" }}
         >
                 <h1>@{userData.username}</h1>
                 <br></br>
@@ -188,7 +188,7 @@ function Profile() {
                             <div className="removeBtn" onClick={() => { setnewImageUrl(null); setDomColor('black'); } }>x</div>
                             <img className="newImage" src={newImageUrl}></img>
                         </div>
-                        <textarea className="caption-edit" placeholder="Write something about this memory" onChange={(e) => { setCaption(e.target.value); } }></textarea>
+                        <textarea className="caption-edit" placeholder="Write a caption for this photo" onChange={(e) => { setCaption(e.target.value); } }></textarea>
                         <button className="Post" onClick={handlePost}>Post Image</button>
                     </>}
                 <div className="photos">

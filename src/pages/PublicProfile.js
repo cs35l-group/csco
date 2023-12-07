@@ -5,7 +5,7 @@ import PhotoGallery from '../components/photogallery';
 import './Profile.css'
 import React from 'react';
 import SignOut from '../components/signoutbutton';
-
+import Header from '../components/header'
 
 
 function OtherProfile() {
@@ -81,19 +81,17 @@ function OtherProfile() {
     }
 
     return (
-        <div className="profile">
-            <h1>@{userData.username}</h1>
-            <div className="photos">
-                <PhotoGallery images={images} />
-
+        <>
+            <div className="header">
+                <Header />
             </div>
-            <div className="navigation">
-                <button className="navigate" onClick={handleHome}>Home</button>
-                <SignOut />
-            </div>    
-
-                   
-        </div>
+            <div className="profile">
+                <h1>@{userData.username}</h1>
+                <div className="photos">
+                    <PhotoGallery images={images} />
+                </div>
+            </div>
+        </>
     );
 }
 
