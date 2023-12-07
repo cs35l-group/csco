@@ -10,20 +10,6 @@ function SearchBar() {
 
     const handleSearchSubmit = (event) => {
         event.preventDefault();
-        // fetch('http://localhost:4000/api/logins', {
-        //   method: 'GET',
-        //   headers: {
-        //     'Content-Type': 'application/json',
-        //   },
-        //   body: JSON.stringify({ username, password }),
-        // })
-        // .then(response => response.json())
-        // .then(data => {
-        //   console.log('User logged in!:', data)
-        //   navigate('/home')
-        // })
-        // .catch(error => console.error('Error signing up:', error));
-
         fetch('http://localhost:4000/api/search', {
           method: 'POST',
           headers: {

@@ -74,56 +74,6 @@ const FileUpload = ({handleUploads}) => {
         <ImageIcon className="imgicon" />
         <p>Drag and drop an image or<br />press ⌘+V to paste a link.</p>
       </div>
-      {/* Sharlene's Implementation
-      <div>
-        <label>
-          <input
-            type="radio"
-            value="url"
-            checked={selectedOption === 'url'}
-            onChange={() => setSelectedOption('url')}
-          />
-          Upload from URL
-        </label>
-        <label>
-          <input
-            type="radio"
-            value="upload"
-            checked={selectedOption === 'upload'}
-            onChange={() => setSelectedOption('upload')}
-          />
-          Upload from your device
-        </label>
-      </div>
-      {selectedOption === 'upload' && (
-        <div {...getRootProps()} className="upload-dropzone">
-          <input {...getInputProps()} />
-          <p>Drag and drop your image here</p>
-        </div>
-      )}
-      {selectedOption === 'url' && (
-        <div className="url-input">
-          <label>Image URL:</label>
-          <input
-            type="text"
-            value={imageUrl}
-            onChange={(e) => setImageUrl(e.target.value)}
-            placeholder="Enter image URL..."
-          />
-        </div>
-      )}
-      {selectedOption === 'upload' || selectedOption === 'url' ? (
-        <div className="uploaded-files">
-          <h3>Uploaded Files</h3>
-          <ul>
-            {uploadedFiles.map((file) => (
-              <li key={file.name}>{file.name}</li>
-            ))}
-          </ul>
-        </div>
-      ) : null}
-      <button className="upload-button" onClick={handlePost}> Create Post </button>
-            */}
     </div>
   );
 };
