@@ -1,6 +1,5 @@
 # CSCO – Your personal media board.
 
-CS35L Project
 
 To view Web App:
 - Run `npm install` on both the backend repository (csco api) and the front end (csco)
