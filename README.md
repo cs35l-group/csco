@@ -1,5 +1,6 @@
 # CSCO – Your personal media board.
 
+![image](https://i.imgur.com/DjsYzu0.gif)
 
 To view Web App:
 - Run `npm install` on both the backend repository (csco api) and the front end (csco)
