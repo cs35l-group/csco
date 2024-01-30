@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import PhotoGallery from '../components/photogallery';
 import './Profile.css'
 import React from 'react';
-import SignOut from '../components/signoutbutton';
 import Header from '../components/header'
 
 
@@ -14,11 +13,6 @@ function OtherProfile() {
     const [userData, setUserData] = useState(null);
     const [images, setImages] = useState([]);
     const [post, setPost] = useState([null]);
-
-    const handleHome = (event) => {
-        event.preventDefault();
-        navigate('/home')
-    }
 
     const fetchUserProfile = async () => {
         const token = localStorage.getItem('otherToken');

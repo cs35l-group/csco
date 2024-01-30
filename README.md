@@ -1,6 +1,11 @@
 # CSCO – Your personal media board.
 
-CS35L Project
+![image](https://github.com/cs35l-group/csco/assets/48577877/0e331320-2500-47f1-89ce-c9b929533168)
+
+To view Web App:
+- Run `npm install` on both the backend repository (csco api) and the front end (csco)
+- Then run `npm start` on both of them
+- Create a new account using "sign up"
 
 # Every time you launch this project:
 
