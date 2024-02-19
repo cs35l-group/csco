@@ -20,5 +20,3 @@ To view Web App:
 - `npm test`
 - `npm run build`
 
-# `npm start`
-- this command allows you to see how certain things are reviewed 
