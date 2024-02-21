@@ -5,9 +5,12 @@ import SignOut from './signoutbutton';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../assets/logo files/logo-white.svg';
 
+
 const Header = () => {
     let navigate = useNavigate();
-  
+    
+
+    // navigate to profile page
     const handleProfile = (event) => {
       event.preventDefault();
       navigate('/profile')

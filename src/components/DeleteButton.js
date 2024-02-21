@@ -1,7 +1,7 @@
 import React from 'react';
 import './DeleteButton.css';
 
-
+// Button for deleting post 
 const DeleteButton = ({ imageId }) => 
 { 
     const handleDelete = async () =>

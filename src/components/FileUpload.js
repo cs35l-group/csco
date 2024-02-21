@@ -3,14 +3,17 @@ import { useDropzone } from 'react-dropzone'; // for drag and drop
 import ImageIcon from '@mui/icons-material/AddPhotoAlternate'; // import icons
 import './FileUpload.css';
 
+
+// handling image upload through file
 const FileUpload = ({handleUploads}) => {
   const [selectedOption, setSelectedOption] = useState(null); // 'url' or 'upload' -> change of this state indicates the user has uploaded a fle
   const [uploadedFiles, setUploadedFiles] = useState([]);
-  const [imageUrl, setImageUrl] = useState('');
+  const [imageUrl, setImageUrl] = useState(''); // fields for image file path
+
   const { getRootProps, getInputProps } = useDropzone({
     onDrop: (acceptedFiles) => {
       console.log(acceptedFiles);
-      if (!acceptedFiles.every((file) => /\.(jpeg|png|jpg)$/.test(file.name.toLowerCase())) || acceptedFiles.length != 1){
+      if (!acceptedFiles.every((file) => /\.(jpeg|png|jpg)$/.test(file.name.toLowerCase())) || acceptedFiles.length != 1){ // make sure file is of correct format
         alert('Upload error, make sure you are uploading one jpg and png')
       }
       else {

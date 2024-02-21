@@ -4,7 +4,7 @@ import React from 'react';
 import './LandingPage.css';
 import Auth from './Login'
 
-
+// Login page (default page, page when you are not logged in)
 const LandingPage = () => {
     useEffect(() => {
         const script = document.createElement('script');
@@ -21,6 +21,7 @@ const LandingPage = () => {
     }, []);
 
     if (typeof document !== `undefined`) {
+        // parallax effect for images to move as mouse moves
         document.addEventListener("mousemove", parallax);
         document.addEventListener("mouseleave", restore);
         function parallax(e) {
@@ -41,6 +42,7 @@ const LandingPage = () => {
         }
     }
     
+    // returns landing page of 6 images and login/signup authenticated fields from Login.js 
     return(
         <>
             <main>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {ColorExtractor} from 'react-color-extractor';
 
+// extracts dominant color from image currently staged to be posted and changes background color to it
 const ImageColorExtractor = ({ imageUrl, setDomColor }) => {
 
   const handleColors = (colors) => {

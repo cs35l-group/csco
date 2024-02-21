@@ -4,6 +4,7 @@ import React from 'react';
 import './Login.css'; 
 import logo from '../assets/logo files/logo.png'
 
+// authentication component for logging in displayed on Landing Page
 function Login() {
   const [logintype, setLoginType] = useState(''); // Created a state hook for Logintype
   const [username, setUsername] = useState('');
@@ -19,12 +20,15 @@ function Login() {
     localStorage.setItem("otherToken", null)
   }, []);
 
+  // when loginType="LOGIN" and submit pressed
   const handleLoginSubmit = () => {
+    // error if username or password is blank
     if (username == "" || password == "") {
       showError("Username and password fields cannot be blank")
       return;
     }
 
+    // send request to backend to login (loginType = "login")
     fetch('http://localhost:4000/api/logins', {
       method: 'POST',
       headers: {
@@ -34,10 +38,11 @@ function Login() {
     })
     .then(async response => {
       const data = await response.json();
+      // if login successful, set token to user token
       if (response.ok) {
         console.log("User logged in! ", data)
         localStorage.setItem('token', data.token)
-        navigate('/profile')
+        navigate('/profile') // navigate to user profile
         return;
       } else {
         showError(data.message)
@@ -46,11 +51,14 @@ function Login() {
     .catch(err => console.error('Error signing up:', err));
   };
 
+  // when loginType="SIGNUP" and submit pressed
   const handleSignUpSubmit = () => {
     if (username == "" || password == "") {
       showError("Username and password fields cannot be blank")
       return;
     }
+
+    // send request to backend to signup new user
     fetch('http://localhost:4000/api/logins', {
       method: 'POST',
       headers: {
@@ -60,10 +68,11 @@ function Login() {
     })
     .then(async response => {
       const data = await response.json();
+      // if sign up successful, set token to new user token
       if (response.ok) {
         console.log("User signed up! ", data)
         localStorage.setItem('token', data.token)
-        navigate('/profile')
+        navigate('/profile') // navigate to new user profile
         return;
       } else {
         showError(data.message)
@@ -72,22 +81,27 @@ function Login() {
     .catch(err => console.error('Error signing up:', err));
   };
 
+  // show any login/signup errors on the field
   const showError = (msg) => {
     document.querySelector('.err-msg').innerHTML = msg;
     document.querySelector('.err-msg').classList.remove('hidden');
   }
 
+  // show the authentication button
   const showAuth = (type) => {
     setLoginType(type);
     setAuthHidden(!isAuthHidden);
     document.querySelector('.user-input').focus();
   }
+
+  // use "Enter" key to submit login/signup
   const handleSubmit = (e) =>{
     e.preventDefault();
     if (logintype == "LOGIN") handleLoginSubmit();
     else {handleSignUpSubmit();}
   }
 
+  // display authentication buttons and username and password fields
   return (
     <div className="auth-con">
       <div className="Login-section">

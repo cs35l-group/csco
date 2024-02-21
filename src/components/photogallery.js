@@ -1,11 +1,7 @@
 import React from 'react';
 import './photogallery.css';
-import DeleteButton from './DeleteButton.js';
 
-import { useEffect, useState } from 'react';
-
-// TODO: refactor columns into reusable components props passing in array
-
+// photo gallery component for homepage and other users' profiles (doesn't have delete button)
 const PhotoGallery = ({ images }) => {
   return (
     <div class='photogallery'>
@@ -19,7 +15,7 @@ const PhotoGallery = ({ images }) => {
           // Loop through every even indexed image, as there are two columns
           if (index%2 == 0){
             return(
-
+            // display image, caption, vibes in first column
             <>
               <img key={index} src={url} alt={`Photo ${index + 1} Source ${url}`} />
               <div class='image-text'>
@@ -46,6 +42,7 @@ const PhotoGallery = ({ images }) => {
         {images.map((image, index) => {
           var url = (image.url).includes('http') ? image.url : 'http://localhost:4000/' + image.url;
           if (index%2 != 0){
+            // display image, caption, vibes in second column
             return(
 
               <>

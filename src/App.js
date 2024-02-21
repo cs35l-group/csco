@@ -9,7 +9,7 @@ import PublicProfile from './pages/PublicProfile'
 
 import './App.css'; 
 
-
+// defines routes for webpage using Browser Router
 function App() {
   return (
     <>
