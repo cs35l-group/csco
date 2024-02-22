@@ -89,13 +89,13 @@ This project was built for UCLA’s CS 35L course.
 - Search for other user's pages through the homepage search feature
 
 ### Demos
-Landing page:
+#### Landing page:
 ![landing page](https://github.com/cs35l-group/csco/assets/52262619/052e5ba3-65e3-4d93-ba43-331351868bfb)
 
-Posts with caption and vibes:
+#### Posts with caption and vibes:
 ![csco-demo2](https://github.com/cs35l-group/csco/assets/52262619/2add8d9b-0dc1-4145-9383-02bc0377119e)
 
-Post staging:
+#### Post staging:
 ![csco-demo3](https://github.com/cs35l-group/csco/assets/52262619/8ce1428d-4434-4a9f-b86b-3cf3391ff03b)
 
 
