@@ -7,16 +7,26 @@ This is the frontend repo for CSCO. The backend repo can be found [here](https:/
 
 ## About this Project
 ### Built With
-- 
+#### Tech Stack
+- [![MongoDB][MongoDB]][MongoDB-url]
 - [![Express][Express.js]][Express-url]
 - [![React][React.js]][React-url]
-- [![OpenAI][OpenAI]][OpenAI-url]
+- [![Node][Node.js]][Node-url]
 
+#### Libraries/APIs
+- mongoose (MongoDB for database)
+- openai (OpenAI API for vibe generation)
+- bcrypt (password hashing)
+- jwt (user token generation)
+- multer (file storage)
+- cors (middleware between frontend and backend)
+- react-dropzone (image drag and drop)
+- react-color-extractor (extracting dominant color from image)
   
 ### Description/Motivation
 CSCO is a social media web application built with the MERN tech stack. Users can create authenticated accounts and post images (either through URL or file upload) onto their profile. Using OpenAI’s GPT 4 Vision Preview API, CSCO automatically generates “vibe” words for each image. Users can search for posts by searching for other users or by searching by image “vibe”.
 
-This project was built UCLA’s CS 35L course.
+This project was built for UCLA’s CS 35L course.
 
 
 ## Getting Started
@@ -63,20 +73,48 @@ This project was built UCLA’s CS 35L course.
    ```sh
    npm start
    ```
-- If backend connection to MongoDB fails, you might have to go to your MongoDB database page and enable all IP Addresses
+	- If backend connection to MongoDB fails, you might have to go to your MongoDB database page and enable all IP Addresses
 
 2. Launch the frontend repo
--    ```sh
--    npm start
--    ```
+   ```sh
+	npm start
+   ```
 
 <!-- USAGE EXAMPLES -->
 ## Usage
-- 
+- Once launched, you will be navigated to the Landing page (login page)
+- Login (if you have previously created an account) or Sign Up to create a new account
+- Once logged in, you will be at the homepage where you will see all users posts
+- Navigate to the profile page to see your personal posts and upload/delete posts
+- Search for other user's pages through the homepage search feature
 
 <!-- ROADMAP -->
 ## Roadmap
-- 
+- [X] Created login page and login route
+	- [X] Defined user schema for MongoDB
+ 	- [X] Used bcrypt and jwt for login/signup authentication and encryption
+        - [X] Created frontend login buttons
+        - [X] Added styling and images to login page
+- [X] Created home page and post routes
+	- [X] Defined post schema for MongoDB
+ 	- [X] Created post-retrieval routes
+	- [X] Created frontend home page to display posts
+- [X] Created profile page
+	- [X] Created routes for posting
+ 	- [X] Added post upload feature
+  		- [X] Upload through URL
+		- [X] Upload through file
+ 		- [X] User-inputted caption
+ 	- [X] Display user posts with frontend
+- [X] Added navigation buttons (Home, Profile, Signout)
+- [X] Added search functionality on home page to search for other users
+	- [X] Navigate to other user's page upon search
+- [X] Added feature to delete posts
+- [X] Added AI "vibe" words generation per post
+	- [X] Integrated OpenAI Vision Preview API
+	- [X] Displayed generated vibe under posts
+- [ ] Feature to search by vibe
+- [ ] Hosting and deployment
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -98,10 +136,16 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
+* UCLA CS 35L and Professor Eggert
 * [Open AI Chat Completions Docs](https://platform.openai.com/docs/guides/text-generation)
-- [Bcrypt and JWT encryption](https://dev.to/eidorianavi/authentication-and-jwt-in-node-js-4i13)
+* [Bcrypt and JWT encryption](https://dev.to/eidorianavi/authentication-and-jwt-in-node-js-4i13)
+* [MongoDB Docs](https://www.mongodb.com/docs/)
 * [README Template](https://github.com/othneildrew/Best-README-Template)
-   
+
+[Node.js]: https://img.shields.io/badge/Node.js-339933.svg?style=for-the-badge&logo=nodedotjs&logoColor=white
+[Node-url]: https://nodejs.org/
+[MongoDB]: https://img.shields.io/badge/MongoDB-47A248.svg?style=for-the-badge&logo=MongoDB&logoColor=white
+[MongoDB-url]: https://www.mongodb.com/
 [OpenAI]: https://img.shields.io/badge/OpenAI-412991.svg?style=for-the-badge&logo=OpenAI&logoColor=white
 [OpenAI-url]: https://platform.openai.com/docs/guides/text-generation
 [Express.js]: https://img.shields.io/badge/Express.js-404D59?style=for-the-badge
