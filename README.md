@@ -1,7 +1,7 @@
 # CSCO - Your Personal Media Board
 #### Shareable collections for your digital snapshots
 
-This is the frontend repo for CSCO. The backend repo can be found at: [https://github.com/Jaysontian/csco-api]
+This is the frontend repo for CSCO. The backend repo can be found [here](https://github.com/Jaysontian/csco-api).
 
 ![image](https://github.com/cs35l-group/csco/assets/48577877/0e331320-2500-47f1-89ce-c9b929533168)
 
